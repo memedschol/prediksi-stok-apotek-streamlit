@@ -269,16 +269,16 @@ else:
 
             st.subheader("Hasil Prediksi Seluruh Obat")
 
-            forecast_tampil = forecast_df.drop(
-    columns=["prediksi_unit"],
-    errors="ignore"
-)
-    
-st.dataframe(
-    forecast_tampil,
-    use_container_width=True,
-    hide_index=True
-)
+        forecast_tampil = forecast_df.drop(
+            columns=["prediksi_unit"],
+            errors="ignore"
+        )
+
+        st.dataframe(
+            forecast_tampil,
+            use_container_width=True,
+            hide_index=True
+        )
 
             # -----------------------------------------------------------------
             # VISUALISASI TOP 10 SKU
