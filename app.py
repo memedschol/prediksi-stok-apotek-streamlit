@@ -273,7 +273,9 @@ else:
     columns=["prediksi_unit"],
     errors="ignore"
 )
-
+    except Exception as e:
+        st.error(f"Terjadi kesalahan: {e}")
+        st.stop()
 st.dataframe(
     forecast_tampil,
     use_container_width=True,
