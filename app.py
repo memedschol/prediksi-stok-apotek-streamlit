@@ -67,13 +67,10 @@ with st.sidebar:
         """
         **Algoritma:**
         - XGBoost Regressor
-        - Average Fallback
-
+        
         **Konfigurasi:**
-        - Lag: 4 bulan
         - Forecast: 1 bulan berikutnya
-        - Minimal data tercatat: 4 bulan
-        """
+                """
     )
 
 
