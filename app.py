@@ -269,32 +269,28 @@ else:
 
             st.subheader("Hasil Prediksi Seluruh Obat")
 
-        forecast_tampil = forecast_df.drop(
-            columns=["prediksi_unit"],
-            errors="ignore"
-        )
-
-        st.dataframe(
-            forecast_tampil,
-            use_container_width=True,
-            hide_index=True
-        )
-
-            # -----------------------------------------------------------------
-            # VISUALISASI TOP 10 SKU
-            # -----------------------------------------------------------------
-
-            st.divider()
-
-            st.subheader(
-                "10 Obat dengan Prediksi Tertinggi"
+            forecast_tampil = forecast_df.drop(
+                columns=["prediksi_unit"],
+                errors="ignore"
             )
-
+        
+            st.dataframe(
+                forecast_tampil,
+                use_container_width=True,
+                hide_index=True
+            )
+        
+            # VISUALISASI TOP 10 SKU
+        
+            st.divider()
+        
+            st.subheader("10 Obat dengan Prediksi Tertinggi")
+        
             top10 = forecast_df.head(10).copy()
-
+        
             fig, ax = plt.subplots(figsize=(11, 5))
-
-            ax.barh(
+        
+            ax.bar(
                 top10["kode_obat"].astype(str)[::-1],
                 top10["prediksi_unit"][::-1]
             )
