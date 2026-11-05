@@ -269,11 +269,16 @@ else:
 
             st.subheader("Hasil Prediksi Seluruh Obat")
 
-            st.dataframe(
-                forecast_df,
-                use_container_width=True,
-                hide_index=True
-            )
+            forecast_tampil = forecast_df.drop(
+    columns=["prediksi_unit"],
+    errors="ignore"
+)
+
+st.dataframe(
+    forecast_tampil,
+    use_container_width=True,
+    hide_index=True
+)
 
             # -----------------------------------------------------------------
             # VISUALISASI TOP 10 SKU
@@ -282,7 +287,7 @@ else:
             st.divider()
 
             st.subheader(
-                "10 Obat dengan Prediksi Penjualan Tertinggi"
+                "10 Obat dengan Prediksi Tertinggi"
             )
 
             top10 = forecast_df.head(10).copy()
@@ -294,7 +299,7 @@ else:
                 top10["prediksi_unit"][::-1]
             )
 
-            ax.set_xlabel("Prediksi Penjualan (Unit)")
+            ax.set_xlabel("Prediksi (Unit)")
             ax.set_ylabel("Nama Obat")
             ax.set_title(
                 f"Forecast Bulan {metrics['bulan_prediksi']}"
